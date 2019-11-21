@@ -1,6 +1,12 @@
 <template>
   <div id="app">
+    <v-app>
+      <v-app-bar app/>
 
+      <v-content>
+        <v-container fluid/>
+      </v-content>
+    </v-app>
   </div>
 </template>
 
