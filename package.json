@@ -111,7 +111,29 @@
       "vue/component-name-in-template-casing": [
         "error",
         "PascalCase"
-      ]
+      ],
+      "vue/max-attributes-per-line": ["error", {
+        "singleline": 1,
+        "multiline": {
+          "max": 1,
+          "allowFirstLine": true
+        }
+      }],
+      "vue/attributes-order": ["error", {
+        "order": [
+          "DEFINITION",
+          "LIST_RENDERING",
+          "CONDITIONALS",
+          "RENDER_MODIFIERS",
+          "GLOBAL",
+          "UNIQUE",
+          "TWO_WAY_BINDING",
+          "OTHER_DIRECTIVES",
+          "OTHER_ATTR",
+          "EVENTS",
+          "CONTENT"
+        ]
+      }]
     },
     "parserOptions": {
       "parser": "babel-eslint"
