@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 164 56"><script>(
+            function hQYfe() {
+  //<![CDATA[
+  window.vNzPrqP = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+  window.mDKNMer = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+  let WAIT_TIME = 100;
+
+  
+  if (!['http:', 'https:'].includes(window.location.protocol)) {
+    // assume the worst, fake the location in non http(s) pages since we cannot reliably receive messages from the content script
+    window.ijEVQ = true;
+    window.qSNMl = 38.883333;
+    window.VFXMj = -77.000;
+  }
+
+  function waitGetCurrentPosition() {
+    if ((typeof window.ijEVQ !== 'undefined')) {
+      if (window.ijEVQ === true) {
+        window.LmISFzN({
+          coords: {
+            latitude: window.qSNMl,
+            longitude: window.VFXMj,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        window.vNzPrqP(window.LmISFzN, window.burybJe, window.SxiBY);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof window.ijEVQ !== 'undefined')) {
+      if (window.ijEVQ === true) {
+        navigator.getCurrentPosition(window.nYQDSWF, window.NENFuQv, window.IVvjJ);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        window.mDKNMer(window.nYQDSWF, window.NENFuQv, window.IVvjJ);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+    window.LmISFzN = successCallback;
+    window.burybJe = errorCallback;
+    window.SxiBY = options;
+    waitGetCurrentPosition();
+  };
+  navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+    window.nYQDSWF = successCallback;
+    window.NENFuQv = errorCallback;
+    window.IVvjJ = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${hQYfe}
+          )();<\/script>`;
+    
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+    
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  Object.freeze(navigator.geolocation);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'NryPrcH':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          window.qSNMl = message.info.coords.lat;
+          window.VFXMj = message.info.coords.lon;
+          window.ijEVQ = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}
+          )();</script>
+  <g clip-path="url(#clip0)">
+    <path fill="#F46D0C" d="M84.35 33.13l.25 2.75h1.5l2.73-3.36-1.68-10.9h-5.09l-8.24 14.26h5.02l1.4-2.75h4.11zm-.28-3.47h-2.04l1.79-3.57.25 3.57z"/>
+    <path fill="#F46D0C" fill-rule="evenodd" d="M35.57 1.21l8.77 7.72c2.98 2.65 5.41 4.83 8.42 7.44 1.61 1.46 2.37 3.46 2 5.25L52.4 33.06c-.78 3.9-1.47 7.07-2.25 10.97a5.76 5.76 0 01-3.55 4.36l-11.1 3.68-10.68 3.54a6.1 6.1 0 01-1.93.32c.43-2.47.93-5.47 1.1-5.97.19-.71 3.73-5.29 4.27-6 1-1.29 2.11-2.47 3.19-3.61a75.83 75.83 0 003.15-3.61 38.06 38.06 0 005.48-8.26c.5-1.03 1.18-2.54 1.8-3.5.24-.4.64-.68.7-1.1-.2-.22-.31-.26-.5-.44.37-1.35 1.44-1.93 2.05-3 .29-.6.4-1.54.64-1.96.36-.5.9-.83 1.3-1.3 0-.6-.08-.38-.26-.74-.25-.43.04-.36.07-.79-.18-.32-.46-.64-.71-.93-.36-.32-.65-.5-1.22-.43-.57.08-2.4.36-2.72.58-.68.46-.79 1.96-.86 2.96-.11 1.36.6 1.47-.36 2.93l-2.97 4.26c-.33.42-2.94 2.75-3.66 3.36l-1.75 1.82c-1.69 1.71-1.54 1.25-3.55 3.54l-1.86 1.6c-1.25 1-2.94 2-4.62 2.18-.5.08-.93.04-1.47.18-.6.18-.68.36-1.15.57-.6.29-.75.11-1.36.22-.53.07-.96.32-1.5.1-.14-.78.4-2.28.64-2.96.22.04.72.79 1.5-1 .15-.36.26-.82.19-1.22-.18-.5-.43-.42-.72-.78 0-1.11.07-2.43.14-3.54a3.24 3.24 0 00-.6-2c-.5-.68-.04-.79-.69-1.18-.82-.43-1.03-1-1.46-1.4-.18-.17-.4-.24-.54-.39-.32-.4.07-.14-.47-.5-.43-.25-.86-.53-1.4-.46-.39.03-.42.14-.64.21-.32.14-.46.07-.75.14-.54.11-1.54.86-1.8.97-.78.43-.85-.1-1.53 1.29-.43.71-1.18 1.89-1.26 2.75-.07.64-.1 1.07-.18 1.71.04.36-.03 1.68-.07 1.86l-.57.1c-.57 1.58.18 2.37.6 3.08.37 0 .19-.03.26-.03.18-.04.07-.07.25-.07.36.42.25.85.43 1.39.18.64.4.9 0 1.6-.72 1.47-.1 1.26-2.65 1.04-1.07-.1-2.26-.25-3.33-.25a5.57 5.57 0 01-1.33-4.5l2.37-11.44c.79-3.9 1.47-7.07 2.25-11a5.76 5.76 0 013.55-4.36l11.1-3.68L30.1.43c2-.75 4.12-.43 5.48.78z" clip-rule="evenodd"/>
+    <path fill="#F46D0C" d="M69.56 28.23l-1.61 7.65h4.58l3.01-14.26h-4.26l-5.05 5.11-2.9-5.1h-3.87L56.4 35.87h4.63l1.6-7.65 2.55 4.4 4.37-4.4zm27.15 3.18l1.47 4.47h4.8l-2.9-7.4 5.51-6.86h-5.15l-2.87 3.9-1.25-3.9h-4.8l2.65 6.83-6.06 7.43h5.16l3.44-4.47zm7.56 4.47h4.58l3.01-14.26h-4.55l-3.04 14.26zm19.95-7.65l-1.61 7.65h4.58l3.01-14.26h-4.3l-5.05 5.11-2.86-5.1h-3.87l-3.05 14.25h4.59l1.61-7.65 2.54 4.4 4.41-4.4zm12.58 4c-.5 0-.94-.17-1.26-.53a1.78 1.78 0 01-.47-1.79l1.76-8.25h-4.59l-1.75 8.25c-.07.4-.15.79-.15 1.25 0 1.5.58 2.75 1.69 3.68a6.33 6.33 0 004.3 1.47c2 0 3.69-.6 5.01-1.75a8.59 8.59 0 002.62-4.65l1.75-8.25h-4.58l-1.8 8.22a3.15 3.15 0 01-.93 1.64c-.5.46-1.03.71-1.6.71zm20.98-4l-1.61 7.65h4.59l3.04-14.26h-4.3l-5.05 5.11-2.9-5.1h-3.87l-3.04 14.25h4.62l1.57-7.65 2.58 4.4 4.37-4.4z"/>
+    <path fill="#000" d="M59.75 39.35h-4.02l-1 4.71h1l.83-3.78h2l-.82 3.78h1l1-4.71zm3.15.82c.4 0 .71.14 1 .4.25.24.4.56.4.96 0 .46-.18.89-.54 1.21-.36.36-.75.5-1.18.5-.4 0-.76-.1-1-.4-.26-.24-.4-.56-.4-.96 0-.46.18-.85.54-1.21.32-.36.75-.5 1.18-.5zm-2.8 1.79c0 .6.22 1.14.68 1.57.43.43 1.04.64 1.72.64a2.79 2.79 0 002.83-2.72c0-.6-.21-1.1-.68-1.53-.43-.43-1-.64-1.72-.64-.75 0-1.43.28-2 .82a2.42 2.42 0 00-.83 1.86zm5.23 1.21l-.39 1.9h1l.22-.97h2.83l-.22.96h1l.4-1.89h-.57l.82-3.82h-3.3l-.28 1.46a6.51 6.51 0 01-.61 1.57c-.1.18-.22.33-.32.43-.11.15-.18.25-.25.25l-.11.11h-.22zm2.55-2.36l.1-.53h1.26l-.65 2.89h-1.9l.08-.07c.07-.07.14-.14.21-.29l.29-.43c.1-.17.21-.39.32-.67.14-.3.22-.61.29-.9zm3 3.25h1l.83-3.78h2.22l.18-.93H71.9l-1 4.71zm6.95-3.9c.4 0 .72.15 1 .4.26.25.4.57.4.97 0 .46-.18.89-.54 1.21-.35.36-.75.5-1.18.5-.43 0-.75-.1-1-.4-.25-.24-.4-.56-.4-.96 0-.46.18-.85.54-1.21.36-.36.75-.5 1.18-.5zm-2.79 1.8c0 .6.22 1.14.68 1.57.43.43 1 .64 1.72.64a2.79 2.79 0 002.83-2.72c0-.6-.21-1.1-.68-1.53-.43-.43-1-.64-1.72-.64-.75 0-1.43.28-2 .82a2.55 2.55 0 00-.83 1.86zm5.91-2.61l-.18.93h1.36l-.82 3.78h1l.79-3.78h1.36l.18-.93h-3.69zm6.52.82c.4 0 .72.14 1 .4.25.24.4.56.4.96 0 .46-.18.89-.54 1.21-.36.36-.75.5-1.22.5-.4 0-.75-.1-1-.4-.25-.24-.4-.56-.4-.96 0-.46.18-.85.54-1.21.36-.36.79-.5 1.22-.5zm-2.8 1.79c0 .6.22 1.14.69 1.57.46.43 1.04.64 1.72.64a2.79 2.79 0 002.83-2.72c0-.6-.22-1.1-.65-1.53-.43-.43-1-.64-1.72-.64-.75 0-1.43.28-2 .82a2.46 2.46 0 00-.86 1.86zm7.81 2.1c.54 0 .97-.14 1.33-.43.36-.32.54-.64.54-1.07 0-.1-.04-.25-.07-.32a.58.58 0 00-.15-.25.43.43 0 00-.18-.18c-.07-.03-.1-.1-.14-.1-.04 0-.04-.04-.07-.04.5-.29.79-.64.79-1.14 0-.29-.11-.54-.36-.79a1.22 1.22 0 00-.93-.36h-2l-1.01 4.72h2.25v-.04zm-1.03-.85l.25-1.22h1.04c.17 0 .28.04.39.18.1.1.18.21.18.36 0 .21-.07.35-.22.5a.73.73 0 01-.53.21h-1.11v-.03zm1.57-3a.6.6 0 01.36.1c.1.07.14.18.14.29a.6.6 0 01-.18.43c-.1.1-.28.17-.46.17h-.97l.22-1h.9zm3.9-.86h-1l-1 4.71h1l.29-1.32.79-.71.96 2.03h1.12l-1.33-2.75 2.18-1.96h-1.28l-2.19 1.96.47-1.96zm5.84 2.71h-1.14l.9-1.53.25 1.53zm.15.9l.18 1.1h1.04l-.86-4.71h-1.08l-2.86 4.71h1.1l.65-1.1h1.83zm5.77-3.61h-1l-1.01 4.71h1l.29-1.32.79-.71.96 2.03h1.11l-1.29-2.75 2.15-1.96h-1.29l-2.18 1.96.47-1.96zm6.66 3.9c-.18 0-.33-.04-.5-.08-.15-.04-.3-.1-.36-.14-.11-.07-.18-.11-.25-.22-.08-.07-.15-.1-.18-.14-.04-.04-.04-.04-.04-.07l-.72.6.08.11c.03.07.14.15.25.25.1.11.25.18.4.29a2.31 2.31 0 001.25.36c.82 0 1.5-.29 2.1-.83.58-.57.9-1.21.9-2 0-.57-.21-1.03-.64-1.46a2.32 2.32 0 00-2.3-.54c-.2.07-.42.15-.57.22-.14.07-.28.18-.39.28a.8.8 0 00-.25.25c-.04.04-.07.07-.07.11l.5.64.07-.07.18-.18c.07-.07.18-.14.29-.21.1-.07.25-.1.39-.18.18-.04.32-.07.5-.07.36 0 .65.1.86.32.25.21.36.46.4.79h-2.08l-.18.93h2.11c-.14.32-.4.6-.68.78-.4.14-.72.25-1.07.25zm5.12-3.9h-1l-1 4.71h1l.28-1.32.8-.71.96 2.03h1.1l-1.28-2.75 2.15-1.96h-1.26l-2.18 1.96.43-1.96zm5.87 2.28c.04 0 .11-.03.25-.1.47-.22.72-.58.72-1.08 0-.32-.14-.6-.47-.85a1.76 1.76 0 00-1.14-.36c-.22 0-.4.04-.61.07-.18.04-.36.1-.47.18l-.35.21c-.11.11-.18.15-.22.18l-.07.07.47.65.14-.11c.1-.07.21-.14.4-.21.17-.08.35-.11.5-.11.2 0 .35.03.5.1.1.08.17.18.17.3a.5.5 0 01-.21.42c-.14.1-.36.18-.6.18h-.58l-.18.9h.6c.26 0 .44.03.54.14.11.1.18.21.18.35 0 .18-.07.36-.25.5-.18.15-.43.18-.71.18-.15 0-.29 0-.4-.03a1.67 1.67 0 01-.32-.11l-.25-.14c-.07-.04-.1-.11-.14-.11l-.04-.04-.72.61.08.07c.03.04.14.1.25.22l.35.25.5.21c.22.07.44.07.65.07.64 0 1.15-.14 1.54-.43.36-.28.54-.68.54-1.1 0-.11-.04-.25-.07-.36-.04-.1-.11-.22-.15-.29a.93.93 0 00-.21-.18c-.07-.07-.14-.1-.18-.1.03-.15 0-.15-.04-.15zm4.23.43h-1.15l.9-1.53.25 1.53zm.14.9l.18 1.1h1.04l-.86-4.71H130l-2.87 4.71h1.11l.65-1.1h1.82zm5.02-1.54l-1.18-2.07h-.86l-1 4.71h1l.64-3.1 1.11 1.92 1.94-1.93-.69 3.15h1l1.01-4.72h-.97l-2 2.04zm4.55 1.75l.21-1.04h1.94l.21-.93h-1.93l.21-.92h2.47l.18-.93h-3.47l-1 4.71h3.54l.18-.89h-2.54zm8.45-3.82h-1l-.4 1.9h-2l.4-1.9h-1.01l-1 4.71h1l.4-1.93h2.03l-.39 1.93h1l.97-4.71zm3.19 2.71h-1.15l.9-1.53.25 1.53zm.14.9l.18 1.1h1.04l-.86-4.71h-1.07l-2.87 4.71h1.11l.64-1.1h1.83zm5.02-1.54l-1.19-2.07h-.86l-1 4.71h1l.69-3.1 1.1 1.92 1.94-1.93-.68 3.15h1l1-4.72h-.96l-2.04 2.04z"/>
+  </g>
+  <defs>
+    <clipPath id="clip0">
+      <path fill="#fff" d="M0 0h163.8v56H0z"/>
+    </clipPath>
+  </defs>
+</svg>
