@@ -7,10 +7,7 @@
              height="100%"
              alt="Максимум - Подготовка к экзаменам">
 
-        <div>todo выбор курса
-          <router-link to="/asdasd">asdasd</router-link>
-          <router-link to="/user">user</router-link>
-        </div>
+        <div>todo выбор курса</div>
       </AppContainer>
     </v-app-bar>
 
