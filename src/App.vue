@@ -2,13 +2,28 @@
   <v-app>
     <v-app-bar app
                height="80">
-      <AppContainer>
-        <img src="./assets/header-logo.svg"
-             height="100%"
-             alt="Максимум - Подготовка к экзаменам">
+      <v-container>
+        <v-row
+            max-height="100%"
+justify="space-between"
+               align="center">
+          <v-col cols="6">
+            <v-img src="./assets/header-logo.svg"
+                   height="70"
+                   position="left center"
+                   contain
+                   alt="Максимум - Подготовка к экзаменам"/>
+          </v-col>
 
-        <div>todo выбор курса</div>
-      </AppContainer>
+          <v-col cols="6"
+                 sm="4"
+                 md="3"
+                 lg="3"
+                 xl="3">
+            <CourseSelect/>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-app-bar>
 
     <v-content>
@@ -18,12 +33,11 @@
 </template>
 
 <script>
-
-import AppContainer from '@/components/AppContainer';
+import CourseSelect from '@/components/CourseSelect';
 
 export default {
   name: 'app',
-  components: { AppContainer },
+  components: { CourseSelect },
   mounted() {
     this.$store.dispatch('fetchCourses');
     this.$store.dispatch('fetchLessons');
