@@ -1,19 +1,29 @@
 <template>
-  <div id="app">
-    <v-app>
-      <v-app-bar app/>
+  <v-app>
+    <v-app-bar app
+               height="80">
+      <AppContainer>
+        <img src="./assets/header-logo.svg"
+             height="100%"
+             alt="Максимум - Подготовка к экзаменам">
 
-      <v-content>
-        <v-container fluid/>
-      </v-content>
-    </v-app>
-  </div>
+        <div>todo выбор курса</div>
+      </AppContainer>
+    </v-app-bar>
+
+    <v-content>
+      <v-container fluid/>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
 
+import AppContainer from '@/components/AppContainer';
+
 export default {
   name: 'app',
+  components: { AppContainer },
 };
 </script>
 
