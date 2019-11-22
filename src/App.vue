@@ -24,6 +24,10 @@ import AppContainer from '@/components/AppContainer';
 export default {
   name: 'app',
   components: { AppContainer },
+  mounted() {
+    this.$store.dispatch('fetchCourses');
+    this.$store.dispatch('fetchLessons');
+  },
 };
 </script>
 
