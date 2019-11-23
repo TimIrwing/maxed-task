@@ -2,10 +2,14 @@
   <v-container>
     <v-row align="center"
            justify="center">
-      <v-col cols="6">
-        <Lesson v-for="lesson in lessonsPage"
-                :key="lesson.id"
-                :lesson="lesson"/>
+      <v-col cols="10"
+             sm="8"
+             md="6"
+             lg="5"
+             xl="4">
+        <LessonCard v-for="lesson in lessonsPage"
+                    :key="lesson.id"
+                    :lesson="lesson"/>
       </v-col>
     </v-row>
 
@@ -17,13 +21,13 @@
 </template>
 
 <script>
-import Lesson from '@/components/Lesson';
+import LessonCard from '@/components/LessonCard';
 
 const LESSONS_PER_PAGE = 5;
 
 export default {
   name: 'Lessons',
-  components: { Lesson },
+  components: { LessonCard },
   data: () => ({
     page: 1,
   }),
@@ -33,7 +37,8 @@ export default {
     },
 
     lessons() {
-      return this.$store.getters.getCourseLessons(this.$route.params.id);
+      const arr = this.$store.getters.getCourseLessons(this.$route.params.id);
+      return arr.sort((a, b) => a.startedAt - b.startedAt);
     },
 
     lessonsPage() {

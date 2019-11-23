@@ -2,7 +2,8 @@
   <v-app>
     <v-app-bar app>
       <v-container>
-        <v-row justify="space-between"
+        <v-row class="flex-nowrap"
+               justify="space-between"
                align="center">
           <img src="./assets/header-logo.svg"
                alt="Максимум - Подготовка к экзаменам">
