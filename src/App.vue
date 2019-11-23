@@ -4,12 +4,8 @@
       <v-container>
         <v-row justify="space-between"
                align="center">
-          <router-link to="/">
-            <v-row align="center">
-              <img src="./assets/header-logo.svg"
-                   alt="Максимум - Подготовка к экзаменам">
-            </v-row>
-          </router-link>
+          <img src="./assets/header-logo.svg"
+               alt="Максимум - Подготовка к экзаменам">
 
           <CourseSelect/>
         </v-row>
