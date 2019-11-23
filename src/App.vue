@@ -1,27 +1,13 @@
 <template>
   <v-app>
-    <v-app-bar app
-               height="80">
+    <v-app-bar app>
       <v-container>
-        <v-row
-            max-height="100%"
-justify="space-between"
+        <v-row justify="space-between"
                align="center">
-          <v-col cols="6">
-            <v-img src="./assets/header-logo.svg"
-                   height="70"
-                   position="left center"
-                   contain
-                   alt="Максимум - Подготовка к экзаменам"/>
-          </v-col>
+          <img src="./assets/header-logo.svg"
+               alt="Максимум - Подготовка к экзаменам">
 
-          <v-col cols="6"
-                 sm="4"
-                 md="3"
-                 lg="3"
-                 xl="3">
-            <CourseSelect/>
-          </v-col>
+          <CourseSelect/>
         </v-row>
       </v-container>
     </v-app-bar>

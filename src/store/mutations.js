@@ -8,8 +8,4 @@ export default {
   SET_LESSONS(state, { arr }) {
     state.lessons = arr;
   },
-
-  SET_SELECTED_COURSE(state, { course }) {
-    state.selectedCourse = course;
-  },
 };
