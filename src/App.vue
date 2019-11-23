@@ -26,16 +26,19 @@ import CourseSelect from '@/components/CourseSelect';
 export default {
   name: 'app',
   components: { CourseSelect },
-  mounted() {
-    this.$store.dispatch('fetchCourses');
-    this.$store.dispatch('fetchLessons');
+  asyncData({ store }) {
+    const actions = [
+      store.dispatch('fetchCourses'),
+      store.dispatch('fetchLessons'),
+    ];
+
+    return Promise.all(actions);
   },
 };
 </script>
 
 <style>
 #app {
-  font-family: 'PT Sans Narrow', Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
