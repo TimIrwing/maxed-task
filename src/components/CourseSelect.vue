@@ -3,7 +3,8 @@
             outlined
             :items="courses"
             label="Выберите предмет"
-            hide-details/>
+            hide-details
+            @change="navigateCourse"/>
 </template>
 
 <script>
@@ -14,6 +15,11 @@ export default {
       if (!this.$store.state.courses) return [];
 
       return this.$store.state.courses.map((obj) => ({ value: obj.id, text: obj.name }));
+    },
+  },
+  methods: {
+    navigateCourse(id) {
+      this.$router.push(`/main/${id}`);
     },
   },
 };
