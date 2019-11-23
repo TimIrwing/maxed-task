@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar app>
+    <v-app-bar app
+               height="80">
       <v-container>
         <v-row class="flex-nowrap"
                justify="space-between"
