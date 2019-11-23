@@ -4,7 +4,7 @@
       <img src="../assets/comet.svg"
            alt="комета">
     </v-row>
-    <h1 class="title">Главной страницы нет, как и динозавров</h1>
+    <h1 class="display-1">Главной страницы нет, как и динозавров</h1>
   </v-container>
 </template>
 
@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style scoped>
-.title {
+.display-1 {
   text-align: center;
 }
 </style>
