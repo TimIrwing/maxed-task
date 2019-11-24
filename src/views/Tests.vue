@@ -1,6 +1,6 @@
 <template>
   <PlaceholderPage :img="{ alt: 'школьные тесты', src: require('@/assets/tests.svg') }"
-                   text="Тесты"/>
+                   text="Тестов пока нет"/>
 </template>
 
 <script>

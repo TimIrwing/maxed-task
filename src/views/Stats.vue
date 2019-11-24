@@ -1,6 +1,6 @@
 <template>
  <PlaceholderPage :img="{ alt: 'статистика', src: require('@/assets/stats.svg') }"
-                  text="Статистика"/>
+                  text="Статистики тоже"/>
 </template>
 
 <script>
