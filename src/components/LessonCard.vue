@@ -1,6 +1,6 @@
 <template>
   <div class="mb-2">
-    <router-link :to="`/lesson/${lesson.id}`"
+    <router-link :to="`/lesson/${lesson.id}/`"
                  class="text-decoration-none">
       <v-card class="d-sm-flex">
         <v-card-title class="d-block headline text-center">
