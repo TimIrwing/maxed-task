@@ -6,8 +6,10 @@
         <v-row class="flex-nowrap"
                justify="space-between"
                align="center">
-          <img src="./assets/header-logo.svg"
-               alt="Максимум - Подготовка к экзаменам">
+          <router-link :to="{ name:'main' }">
+            <img src="./assets/header-logo.svg"
+                 alt="Максимум - Подготовка к экзаменам">
+          </router-link>
 
           <CourseSelect/>
         </v-row>
