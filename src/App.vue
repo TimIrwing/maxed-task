@@ -29,12 +29,7 @@ export default {
   name: 'app',
   components: { CourseSelect },
   asyncData({ store }) {
-    const actions = [
-      store.dispatch('fetchCourses'),
-      store.dispatch('fetchLessons'),
-    ];
-
-    return Promise.all(actions);
+    return store.dispatch('fetchCourses');
   },
 };
 </script>

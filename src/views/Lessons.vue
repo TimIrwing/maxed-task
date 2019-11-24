@@ -28,6 +28,9 @@ const LESSONS_PER_PAGE = 5;
 export default {
   name: 'Lessons',
   components: { LessonCard },
+  asyncData({ store }) {
+    return store.dispatch('fetchLessons');
+  },
   data: () => ({
     page: 1,
   }),
