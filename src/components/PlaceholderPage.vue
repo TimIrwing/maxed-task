@@ -2,7 +2,7 @@
   <v-container class="py-12">
     <v-row v-if="img"
            justify="center">
-      <img :src="`/${img.src}`"
+      <img :src="src"
            :alt="img.alt">
     </v-row>
 
@@ -22,6 +22,11 @@ export default {
     },
     text: {
       type: String,
+    },
+  },
+  computed: {
+    src() {
+      return `/${this.img.src}`;
     },
   },
 };
