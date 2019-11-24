@@ -1,22 +1,17 @@
 <template>
-  <v-container>
-    <v-row justify="center">
-      <img src="../assets/comet.svg"
-           alt="комета">
-    </v-row>
-
-    <h1 class="display-1">Главной страницы нет, как и динозавров</h1>
-  </v-container>
+  <PlaceholderPage :img="{ alt:'метеорит', src: require('@/assets/comet.svg') }"
+                   text="Главной страницы нет, как и динозавров"/>
 </template>
 
 <script>
+import PlaceholderPage from '@/components/PlaceholderPage';
+
 export default {
   name: 'Main',
+  components: { PlaceholderPage },
 };
 </script>
 
 <style scoped>
-.display-1 {
-  text-align: center;
-}
+
 </style>
