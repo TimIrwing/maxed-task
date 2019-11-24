@@ -3,8 +3,8 @@ import VueRouter from 'vue-router';
 
 import App from '@/App';
 import Main from '@/views/Main';
-import Lessons from '@/views/Lessons';
 import Lesson from '@/views/Lesson';
+import LessonList from '@/views/LessonList';
 import Tests from '@/views/Tests';
 import Stats from '@/views/Stats';
 
@@ -43,7 +43,7 @@ export default new VueRouter({
     {
       name: 'course',
       path: './course/:id',
-      component: Lessons,
+      component: LessonList,
     }],
   }],
 });
