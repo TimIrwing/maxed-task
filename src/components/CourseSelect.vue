@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     navigateCourse(id) {
-      this.$router.push(`/${id}`);
+      this.$router.push({ name: 'course', params: { id } });
     },
   },
 };

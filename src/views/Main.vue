@@ -4,6 +4,7 @@
       <img src="../assets/comet.svg"
            alt="комета">
     </v-row>
+
     <h1 class="display-1">Главной страницы нет, как и динозавров</h1>
   </v-container>
 </template>

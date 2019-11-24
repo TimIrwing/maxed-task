@@ -2,6 +2,9 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import App from '@/App';
+import Main from '@/views/Main';
+import Lessons from '@/views/Lessons';
+import Lesson from '@/views/Lesson';
 import Tests from '@/views/Tests';
 import Stats from '@/views/Stats';
 
@@ -10,20 +13,24 @@ Vue.use(VueRouter);
 export default new VueRouter({
   mode: 'history',
   routes: [{
+    name: 'app',
     path: '/',
+    redirect: { name: 'main' },
     component: App,
     children: [{
-      path: '/',
-      component: () => import('@/views/Main'),
+      name: 'main',
+      path: './main',
+      component: Main,
     },
     {
-      path: '/lesson/:id',
-      component: () => import('@/views/Lesson'),
+      name: 'lesson',
+      path: './lesson/:id',
+      redirect: { name: 'tests' },
+      component: Lesson,
       children: [
         {
           name: 'tests',
           path: './tests',
-          alias: '/',
           component: Tests,
         },
         {
@@ -34,8 +41,9 @@ export default new VueRouter({
       ],
     },
     {
-      path: '/:id',
-      component: () => import('@/views/Lessons'),
+      name: 'course',
+      path: './course/:id',
+      component: Lessons,
     }],
   }],
 });
