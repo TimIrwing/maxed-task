@@ -3,7 +3,8 @@
     <v-tabs v-model="tab"
             centered>
       <v-tab v-for="tab in tabs"
-             :key="tab.path">
+             :key="tab.path"
+             class="subtitle-1">
         {{tab.name}}
       </v-tab>
     </v-tabs>

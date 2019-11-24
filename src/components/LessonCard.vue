@@ -3,13 +3,13 @@
     <router-link :to="{ name: 'lesson', params: {id: lesson.id} }"
                  class="text-decoration-none">
       <v-card class="d-sm-flex">
-        <v-card-title class="d-block headline text-center">
+        <v-card-title class="d-block title text-center">
           {{lesson.title}}
         </v-card-title>
 
         <v-spacer/>
 
-        <v-card-subtitle class="d-bloc text-center title mt-n6 mt-sm-0">
+        <v-card-subtitle class="d-bloc text-center subtitle-1 mt-n6 mt-sm-0">
           {{date}}
         </v-card-subtitle>
       </v-card>
