@@ -2,7 +2,7 @@
   <v-container class="py-12">
     <v-row v-if="img"
            justify="center">
-      <img :src="img.src"
+      <img :src="`/${img.src}`"
            :alt="img.alt">
     </v-row>
 
