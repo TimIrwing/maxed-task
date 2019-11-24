@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card class="ma-12">
     <v-tabs v-model="tab"
 centered>
       <v-tab>

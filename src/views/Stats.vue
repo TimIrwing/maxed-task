@@ -1,8 +1,6 @@
 <template>
- <div class="py-12">
-   <PlaceholderPage :img="{ alt: 'статистика', src: require('@/assets/stats.svg') }"
-                    text="Статистика"/>
- </div>
+ <PlaceholderPage :img="{ alt: 'статистика', src: require('@/assets/stats.svg') }"
+                  text="Статистика"/>
 </template>
 
 <script>

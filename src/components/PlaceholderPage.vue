@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="py-12">
     <v-row v-if="img"
            justify="center">
       <img :src="img.src"
@@ -7,7 +7,7 @@
     </v-row>
 
     <h1 v-if="text"
-        class="display-1 text-center">
+        class="display-1 text-center mt-4">
       {{text}}
     </h1>
   </v-container>
@@ -28,4 +28,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>

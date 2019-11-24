@@ -1,8 +1,6 @@
 <template>
-  <div class="py-12">
-    <PlaceholderPage :img="{ alt: 'школьные тесты', src: require('@/assets/tests.svg') }"
-                     text="Тесты"/>
-  </div>
+  <PlaceholderPage :img="{ alt: 'школьные тесты', src: require('@/assets/comet.svg') }"
+                   text="Тесты"/>
 </template>
 
 <script>
