@@ -19,30 +19,30 @@ export default new VueRouter({
     component: App,
     children: [{
       name: 'main',
-      path: './main',
+      path: 'main',
       component: Main,
     },
     {
       name: 'lesson',
-      path: './lesson/:id',
+      path: 'lesson/:id',
       redirect: { name: 'tests' },
       component: Lesson,
       children: [
         {
           name: 'tests',
-          path: './tests',
+          path: 'tests',
           component: Tests,
         },
         {
           name: 'stats',
-          path: './stats',
+          path: 'stats',
           component: Stats,
         },
       ],
     },
     {
       name: 'course',
-      path: './course/:id',
+      path: 'course/:id',
       component: LessonList,
     }],
   }],
