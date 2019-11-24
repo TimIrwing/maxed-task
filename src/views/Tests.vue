@@ -1,5 +1,5 @@
 <template>
-  <PlaceholderPage :img="{ alt: 'школьные тесты', src: require('@/assets/comet.svg') }"
+  <PlaceholderPage :img="{ alt: 'школьные тесты', src: require('@/assets/tests.svg') }"
                    text="Тесты"/>
 </template>
 
